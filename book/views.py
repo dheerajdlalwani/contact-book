@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import *
+from django.contrib import messages
 # from .forms import *
 
 
@@ -20,7 +21,21 @@ def new(request):
         email = output['email']
         address = output['address']
         group = output['group']
-        print(output)
-        return HttpResponse("Contact added successfully.")
+
+        if firstName == "" or contact1 == "":
+            return HttpResponse("First Name & Contact Number 1 cannot be empty")
+        else:
+            contact = Contact.objects.create(
+                firstName=firstName,
+                middleName=middleName,
+                lastName=lastName,
+                contact1=contact1,
+                contact2=contact2,
+                email=email,
+                address=address,
+                group=group,
+            )
+            contact.save()
+            return HttpResponse("Contact added successfully.")
     else:
         return render(request, 'book/new-contact.html')
