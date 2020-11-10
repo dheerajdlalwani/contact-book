@@ -1,0 +1,18 @@
+{% extends 'book/main.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <span class="logo">
+        <img src="{% static '/images/contactBook.svg' %}" alt="">
+    </span>
+    <span class="title">Contact Book</span>
+    <div class="menu">
+        <form class="search" action="" method="GET">
+            <input class="searchBox" type="text" placeholder="Joe Biden"><br>
+            <input class="menuButton" value="Search" type="submit">
+        </form>
+        <a class="menuButton" href="{% url 'new' %}">Add Contact</a>
+        <a class="menuButton">View Contacts</a>
+    </div>
+</div>
+{% endblock %}
