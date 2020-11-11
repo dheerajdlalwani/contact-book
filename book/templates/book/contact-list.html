@@ -1,0 +1,28 @@
+{% extends 'book/main.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <span class="homeButton">
+        <a href="{% url 'home' %}"><img src="{% static '/images/home.svg' %}" alt=""></a>
+    </span>
+    <span class="logo">
+        <img src="{% static '/images/contactBook.svg' %}" alt="">
+    </span>
+    <span class="title2">
+        Your Contacts
+    </span>
+    <form action="" class="search2">
+        <input type="search" class="inputBox" name="search" id="search" placeholder="search">
+    </form>
+    <div class="list">
+        {% for contact in contacts %}
+        <a href="">
+            <div class="contact">
+                <span class="name">{{ contact.firstName }} {{ contact.lastName }}</span>
+                <span class="number">{{ contact.contact1 }}</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

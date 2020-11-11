@@ -3,7 +3,7 @@
 {% load static %}
 <div class="container">
     <span class="homeButton">
-        <a href="{% url 'home' %}"><img src="{% static '/images/homeButton.svg' %}" alt=""></a>
+        <a href="{% url 'home' %}"><img src="{% static '/images/home.svg' %}" alt=""></a>
     </span>
     <span class="logo">
         <img src="{% static '/images/contactBook.svg' %}" alt="">
@@ -42,6 +42,9 @@
             <option value="friends">Friends</option>
             <option value="work">Work</option>
         </select>
+        <br>
+        <label for="favourite">Add to favourites
+        <input type="checkbox" name="favourite"  id="favourite"> </label>
         <br>
         <input class="save" type="submit" value="Save">
     </form>

@@ -39,3 +39,11 @@ def new(request):
             return HttpResponse("Contact added successfully.")
     else:
         return render(request, 'book/new-contact.html')
+
+
+def contactList(request):
+    contacts = Contact.objects.all()
+    context = {
+        "contacts": contacts
+    }
+    return render(request, 'book/contact-list.html', context)
