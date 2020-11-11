@@ -10,6 +10,7 @@ class Contact(models.Model):
     email = models.CharField(max_length=60, null=True)
     address = models.TextField(null=True)
     group = models.CharField(max_length=60, null=True)
+    favourite = models.BooleanField(default=False)
 
     def __str__(self):
         name = self.firstName + " " + self.lastName

@@ -21,6 +21,7 @@ def new(request):
         email = output['email']
         address = output['address']
         group = output['group']
+        favourite = output.get('favourite', False)
 
         if firstName == "" or contact1 == "":
             return HttpResponse("First Name & Contact Number 1 cannot be empty")
@@ -33,10 +34,11 @@ def new(request):
                 contact2=contact2,
                 email=email,
                 address=address,
+                favourite=favourite,
                 group=group,
             )
             contact.save()
-            return HttpResponse("Contact added successfully.")
+            return redirect(contactList)
     else:
         return render(request, 'book/new-contact.html')
 
