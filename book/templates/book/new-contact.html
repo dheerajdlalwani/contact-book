@@ -14,7 +14,7 @@
     <form class="box" action="" method="post">
         {% csrf_token %}
         <label for="firstName">First Name</label>
-        <input class="inputBox" type="text" name="firstName" id="firstName" placeholder="Joe">
+        <input class="inputBox" type="text" name="firstName" id="firstName" required placeholder="Joe">
         <br>
         <label for="middleName">Middle Name</label>
         <input class="inputBox" type="text" name="middleName" id="middleName" placeholder="Robinette">
@@ -23,7 +23,7 @@
         <input class="inputBox" type="text" name="lastName" id="lastName" placeholder="Biden">
         <br>
         <label for="contact1">Contact Number 1</label>
-        <input class="inputBox" type="tel" name="contact1" id="contact1" placeholder="987654321">
+        <input class="inputBox" type="tel" name="contact1" id="contact1" required placeholder="987654321">
         <br>
         <label for="contact2">Contact Number 2</label>
         <input class="inputBox" type="tel" name="contact2" id="contact2" placeholder="987654321">
