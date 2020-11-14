@@ -13,7 +13,8 @@
     </span>
     <form class="box" action="" method="post">
         {% csrf_token %}
-        <label for="firstName">First Name</label>
+        {{ form }}
+        <!-- <label for="firstName">First Name</label>
         <input class="inputBox" type="text" name="firstName" id="firstName" required placeholder="Joe">
         <br>
         <label for="middleName">Middle Name</label>
@@ -45,7 +46,7 @@
         <br>
         <label for="favourite">Add to favourites
             <input type="checkbox" name="favourite" value="True" id="favourite"></label>
-        <br>
+        <br> -->
         <input class="save" type="submit" value="Save">
     </form>
 </div>

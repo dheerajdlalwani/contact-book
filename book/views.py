@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib import messages
-# from .forms import *
+from .forms import *
 
 
 # Create your views here.
@@ -11,37 +11,16 @@ def home(request):
 
 
 def new(request):
+    form = NewContactForm()
     if request.method == "POST":
-        output = request.POST
-        firstName = output['firstName']
-        middleName = output['middleName']
-        lastName = output['lastName']
-        contact1 = output['contact1']
-        contact2 = output['contact2']
-        email = output['email']
-        address = output['address']
-        group = output['group']
-        favourite = output.get('favourite', False)
-
-        if firstName == "" or contact1 == "":
-            return HttpResponse("First Name & Contact Number 1 cannot be empty")
-        else:
-            contact = Contact.objects.create(
-                firstName=firstName,
-                middleName=middleName,
-                lastName=lastName,
-                contact1=contact1,
-                contact2=contact2,
-                email=email,
-                address=address,
-                favourite=favourite,
-                group=group,
-            )
-            contact.save()
+        form = NewContactForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect(contactList)
-    else:
-        return render(request, 'book/new-contact.html')
-
+        else: 
+            return HttpResponse("The form is not valid!")
+    context = {"form": form}
+    return render(request, 'book/new-contact.html', context)
 
 def contactList(request):
     contacts = Contact.objects.all()
